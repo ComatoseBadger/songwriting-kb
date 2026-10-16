@@ -312,146 +312,72 @@ A true-story album (documentary, true crime, a character study of a real person,
 
 | Tier | What | Use |
 |------|------|-----|
-| **1. Primary** | Court filings, transcripts, verdicts, sentencing memos; agency reports and enforcement filings; regulatory filings; full-length speeches and interviews; contemporaneous records; original posts with timestamps | Required for every key fact. Read in full. |
-| **2. Investigative journalism** | Long-form original reporting (roughly 3,000+ words) by reporters with a track record that cites primary sources (ProPublica, Reuters Investigates, the WSJ Theranos investigation) | Acceptable, but verify key facts against the primary sources it cites and check for corrections |
-| **3. Expert analysis** | Legal analysis, technical explanations, industry context, comparable cases | Context only, never for establishing facts or quotes |
-| **4. Background** | Wikipedia, encyclopedias, timeline compilations | A starting point for the timeline, the cast list, and leads to primary sources. Never cite as a fact source. |
+| **1. Primary** | Court filings, transcripts, verdicts; agency reports and enforcement filings; regulatory filings; full speeches and interviews; contemporaneous records; original timestamped posts | Required for every key fact. Read in full. |
+| **2. Investigative journalism** | Long-form original reporting by reporters with a track record that cites primary sources (ProPublica, Reuters Investigates) | Acceptable. Verify key facts against the sources it cites and check for corrections. |
+| **3. Expert analysis** | Legal or technical explanation, industry context, comparable cases | Context only, never for facts or quotes |
+| **4. Background** | Wikipedia, encyclopedias | Starting point for the timeline, the cast, and leads. Never cite. |
 
-Press releases (DOJ, SEC, company announcements) work as an *index*: use them to find the underlying filing, then cite the filing.
+Press releases (DOJ, SEC, company) are an *index*: use them to find the underlying filing, then cite the filing.
 
 ### Research method
 
-1. **Get primary sources first.** Read the actual document, not a news summary of it. Read the relevant sections fully, not by keyword search, and note what comes before and after each passage.
-2. **Triple-verify key facts.** Dates, times, locations, financial figures, legal outcomes (charges, convictions, sentences), direct quotes, and chronological sequences each need **3+ independent sources**. If the user has set a lower bar for low-stakes background, follow it, but keep 3 sources for anything the lyrics state as fact.
-3. **Cite at page level.** Write "Indictment p.47 ¶112", not "the indictment says", and "Transcript Day 23, pp.1847-1849, lines 12-28", not "trial testimony".
-4. **Investigate, don't just collect.** Build an exact-date timeline, trace financial flows (who paid whom, when, how much), map relationships, compare to similar cases, and name the gaps (what's missing or undisclosed).
-5. **Know the counter-evidence.** For each major claim, record the defense or opposing argument, the contradicting evidence, how the claim was challenged, and what remains unresolved.
-6. **Record discrepancies openly.** When sources conflict, use the higher-tier source (court > government > journalism), record the conflict, and mention it in the lyric if it matters.
+1. **Primary sources first.** Read the actual document, not news about it, and read the relevant sections fully rather than by keyword search.
+2. **Triple-verify key facts.** Dates, locations, financial figures, legal outcomes, direct quotes, and sequences of events each need **3+ independent sources**. If the user has set a lower bar for background, follow it, but keep 3 for anything the lyrics state as fact.
+3. **Cite at page level:** "Indictment p.47 ¶112", "Transcript Day 23, pp.1847-1849".
+4. **Investigate.** Build an exact-date timeline, follow the money, map relationships, and name the gaps.
+5. **Know the counter-evidence:** the opposing argument, contradicting evidence, and what's unresolved.
+6. **Record conflicts.** When sources disagree, use the higher tier (court > government > journalism) and note the conflict. Mention it in the lyric if it matters.
 
-**Verification matrix (per key fact):**
 ```
 FACT: [statement]
-SOURCE 1: [citation] - PRIMARY/SECONDARY
-SOURCE 2: [citation] - PRIMARY/SECONDARY
-SOURCE 3: [citation] - PRIMARY/SECONDARY
+SOURCE 1-3: [citation] - PRIMARY/SECONDARY
 VERIFIED: ✅/⚠️/❌ [X sources, Y primary, alignment]
 ```
 
-**Evidence chain:**
-```
-1. [Claim] (Date) - Source: [Name](URL), p.X → [key fact]
-2. [Connected claim] (Date) - Source: [Name](URL) → [key fact]
-3. [Discrepancy]: $X unaccounted → Source: [Name](URL)
-```
-
-**Discrepancy, counter-evidence, and unresolved formats:**
-```
-DISCREPANCY - FACT: … | SOURCE A: … | SOURCE B: … | RESOLUTION: … | CONFIDENCE: … | ACTION NEEDED: …
-OPPOSING CLAIM: … | SUPPORTING: … | CONTRADICTING: … | RESOLUTION: … | CONFIDENCE: …
-UNRESOLVED: … | IMPACT: Minor/Moderate/Major | MITIGATION in lyrics: …
-```
-
-**Confidence levels:**
-
-| Level | Definition | In lyrics |
-|-------|------------|-----------|
-| **High** | 3+ primary sources, all aligned | State as fact |
-| **Medium** | 3+ sources, mix of primary and secondary | Hedge ("reportedly", "prosecutors said") |
-| **Low** | Secondary only, or sources conflict | Flag for review |
-| **Unverified** | Single source or no primary | Don't use without an explicit caveat |
+| Confidence | Definition | In lyrics |
+|------------|------------|-----------|
+| **High** | 3+ primary sources, aligned | State as fact |
+| **Medium** | 3+ sources, mixed primary and secondary | Hedge ("reportedly", "prosecutors said") |
+| **Low** | Secondary only, or conflicting | Flag for review |
+| **Unverified** | One source or no primary | Don't use without a caveat |
 
 ### Where to look, by domain
 
-Search across whichever of these the story touches. Each list is in rough tier order.
+- **Legal:** indictments (the overt acts give a dated timeline), plea agreements (the statement of facts holds the defendant's own admissions), sentencing memos from both sides (human background), verdicts, appeals. Sources: CourtListener/RECAP, PlainSite, Justia, DOJ case pages, PACER (paid, last resort).
+- **Financial:** SEC EDGAR. The 10-K's Risk Factors, Legal Proceedings, and notes; 8-Ks for material events; Form 4 for insider trades. Also earnings-call transcripts, bankruptcy dockets, and stock prices around events.
+- **Government:** DOJ and US Attorney releases, SEC litigation releases, FBI, CISA, Treasury/OFAC, state AGs, congressional testimony, and Inspector General and GAO reports.
+- **Historical:** contemporaneous newspapers (Library of Congress Chronicling America, newspapers.com, NYT archive), the National Archives, FBI Vault, CIA Reading Room, Archive.org, JSTOR, and oral histories. Coverage from the time captures uncertainty before the outcome was known.
+- **Biographical:** the subject's own words (interviews, memoirs, talks, blogs) → profiles by journalists who met them, colleagues, family → news profiles → LinkedIn and public records. For each subject, answer: origin, formation, motivation, method, relationships, turning points, contradictions, humanity.
+- **Journalism:** ProPublica, Reuters Investigates, ICIJ, Bellingcat, the major papers, and wire services. Trust a named author with cited documents who gave the subject a chance to respond. Distrust aggregation, a single anonymous source, and retracted pieces.
+- **Tech & security:** project docs, mailing-list archives, git history (for dates), release notes, conference talks, and LWN. For security: CVE/NVD, vendor advisories, CISA/FBI attribution, security-firm reports (Mandiant, CrowdStrike, Talos), and DEF CON and Black Hat talks. Forums and leaked chats must be authenticated.
 
-- **Legal:** indictments (the overt acts give a dated timeline; the counts give the charges), plea agreements (the statement of facts holds the defendant's own admissions), sentencing memos from both sides (aggravating and mitigating details, human background), verdicts, appeals, civil complaints, DPAs and NPAs. Sources: PACER ($0.10/page, capped at $3/document), CourtListener/RECAP, PlainSite, Justia, DOJ case pages, state court portals.
-- **Financial:** SEC EDGAR filings. The 10-K's Risk Factors, Legal Proceedings, MD&A, and notes are where problems surface. 8-Ks cover material events (executive departures, cybersecurity incidents under Item 1.05, bankruptcy). Also DEF 14A (pay), Form 4 (insider trades), S-1, earnings-call transcripts, bankruptcy dockets, and historical stock prices around events. Financial press (WSJ, FT, Bloomberg, Reuters) is Tier 2.
-- **Government:** DOJ and US Attorney press releases (charges, pleas, sentences), SEC litigation releases, FBI releases and wanted notices, CISA advisories, Treasury/OFAC sanctions, FTC and state AG actions, congressional testimony, and Inspector General and GAO reports. Extract the action, the defendant, the charges or sentence, and official quotes, then chase the underlying documents.
-- **Historical:** contemporaneous documents and official investigations, newspapers from the time (Library of Congress Chronicling America, Google News Archive, newspapers.com, ProQuest, NYT archive), the National Archives, FBI Vault, CIA Reading Room, Archive.org, JSTOR and Google Scholar, and oral histories (StoryCorps, LoC, university projects). Contemporaneous coverage was written before anyone knew the outcome, so it captures the uncertainty of the moment.
-- **Biographical:** the subject's own words first (interviews, memoirs, talks, blogs), then close sources (profiles by journalists who met them, interviews with colleagues and family, authorized biographies), then news and magazine profiles, then reference (LinkedIn for the career timeline, Crunchbase, public records, used carefully). For each subject, try to answer: origin, formation, motivation, method, relationships, turning points, contradictions, humanity.
-- **Journalism:** investigative outlets (ProPublica, Reuters Investigates, ICIJ, Bellingcat, The Intercept), the major papers, and wire services (AP, Reuters, AFP). A strong source has a named author, multiple cited sources, referenced documents, a reputable outlet, a subject given the chance to respond, and fact kept separate from opinion. Red flags: aggregation without attribution, headlines that don't match the body, a single anonymous source, a retraction or correction, stale information.
-- **Tech & security:** official project docs and announcements, mailing-list archives (the author's own words), git history (for dates), release notes, conference talks, LWN, and Ars Technica. For security: vendor advisories, CVE/NVD entries, victim incident reports, government attribution (CISA, FBI, NSA), research from security firms (Mandiant, CrowdStrike, Kaspersky GReAT, Talos, Microsoft), and DEF CON and Black Hat talks. Treat forums and leaked chats as Tier 4 that must be authenticated.
-- **Primary-source voice** (any domain): official social accounts, blogs, forum and mailing-list posts with a consistent identity, and commit messages. Recover deleted material through the Wayback Machine or archive.today. Verify leaks through journalism that covered them, and record provenance.
+**Free court documents:** US federal filings carry no copyright, so search DocumentCloud → CourtListener → Scribd → court "cases of interest" pages and agency sites → news archives (investigations often embed their sources) before paying for PACER.
 
-### Free document sources
+### Citation and verification
 
-US federal court documents carry no copyright (17 U.S.C. § 105). PACER charges for convenience, not ownership. Exhaust these free sources before paying:
-
-1. **DocumentCloud**: journalists upload purchased filings. Best for recent cases.
-2. **CourtListener / RECAP**: a crowdsourced PACER archive with millions of documents.
-3. **Scribd**: search "[case] indictment" or "[party] complaint".
-4. **Justia**: appellate opinions and some district documents.
-5. **Court websites**: "cases of interest" pages for high-profile cases.
-6. **Agency sites**: DOJ press releases often link the indictment PDF. The SEC litigation pages hold complaints and settlements.
-7. **Legal publishers**: Law360 trial coverage, CCH, Bloomberg Law's free filings.
-8. **News archives**: investigations often embed or link their source documents.
-9. **Academic**: SSRN appendices, law-school repositories, Archive.org.
-10. **Specialty**: PlainSite, Docket Alarm (limited).
-
-Search order: DocumentCloud → CourtListener → Scribd → court and agency sites → news archives.
-
-### Citation and documentation
-
-Keep two plain documents per album: **research notes** (facts by track) and a **source list** (full citations).
-
-Each research-notes entry records: the fact statement, its primary citation, the verification matrix, page numbers for key quotes, context, a confidence level, any discrepancies, and open questions.
-
-Citation formats:
+Keep **research notes** (each fact by track, with its citation, verification matrix, page numbers, confidence, and discrepancies) and a **source list** of full citations:
 ```
-Court:      [Case Name], [Court], [Document Type], Filed [Date], pp.[X-Y]. Retrieved [date]. Archive: [URL]
-Historical: [Publication] - [Topic], [Date range], [Description]. Retrieved [date]. Archive: [URL]
+[Case Name], [Court], [Document Type], Filed [Date], pp.[X-Y]. Retrieved [date]. Archive: [URL]
 ```
+Archive every URL (Wayback Machine or archive.today). Watch the date traps: time zones, fiscal years, and announced versus occurred dates.
 
-Archive every URL (Wayback Machine or archive.today), because URLs die. Watch for date traps: time zones, fiscal versus calendar years, and announced versus occurred dates.
+**QC pass before handoff:** every URL opens and is archived, every quote is verbatim, dates, numbers, and names agree everywhere, and every claim traces to a source. Check each source individually, not as a rolled-up "looks fine".
 
-### Verification before writing
-
-**Self-check (QC pass)** before handing off to the user:
-- [ ] Every source URL opens and is archived
-- [ ] Every direct quote is verbatim and matches the cited page
-- [ ] Dates, numbers, and names agree across all sources and notes
-- [ ] Every claim traces to a recorded source
-- [ ] Primary sources used wherever they exist
-- [ ] Each source and quote checked individually, not as a rolled-up "looks fine"
-
-Report the results as High, Medium, Low, or Unverified, plus discrepancies and methodology gaps. Any critical failure blocks the handoff.
-
-**Human verification gate:** the user must personally confirm the sources for each track before lyrics are generated. Present each track's sources as `[Name](URL) - what it supports` and ask the user to open each one, confirm the content, and confirm that nothing is fabricated. Never mark a source verified yourself. If the user finds a problem, keep the track pending: find a new URL, revise the lyric to match the source, or drop a fabricated source and rework the track. Date-stamp each verification.
-
-Division of labor: the QC pass confirms that claims are *sourced* (links, verbatim quotes, consistent dates). The human judges whether the source is *right*, whether the interpretation is fair, and whether the tone is appropriate.
+**Human verification gate:** the user must personally confirm each track's sources before lyrics are generated. Present each source as `[Name](URL) - what it supports` and ask the user to open each one. Never mark a source verified yourself. If the user finds a problem, the track stays pending: find a new URL, revise the lyric, or drop a fabricated source. The QC pass checks that claims are *sourced*. The human judges whether the sources are *right* and whether the framing is fair.
 
 ### How research feeds the lyrics
 
-**Hard rules**
-- **Narrator voice only.** Never write as a real person. Tell their story; don't speak as them.
-- **No fabricated quotes.** Only verified statements appear as quotes.
-- **Every claim traceable.** Each factual line maps to an entry in the research notes. Names, dates, and amounts must be exact.
-- **Stay within the sources.** Don't let the lyrics claim more than the sources say. Hedge Medium-confidence facts.
-- **Fair use:** short quotes for commentary, never wholesale reproduction.
+- **Narrator voice only.** Never write as a real person.
+- **No fabricated quotes.** Every factual line maps to the research notes, with exact names, dates, and amounts, and claims no more than the sources say. Short quotes for commentary only (fair use).
+- **Three attribution modes:**
+  ```
+  Direct quote (verified):  He told the Times, "I never saw a dime"
+  Paraphrase (reported):    He claimed he didn't know, played ignorant
+  Narrator summary:         The evidence mounted, day by day
+  ```
+  A real person's voice goes through the narrator: "I just want the code to be free" becomes "He said he didn't care about the money / Just wanted the code to run free."
+- **Mine for:** specific human details ("dropped out after one semester", not "he was smart"); contradictions between the public image and the private reality; admissions, regret, defiance, denial; numbers that tell the story; period language for historical tracks ("on the level", "subversive elements", "greed is good").
+- **Jargon that sings:** overt acts, allocution, forfeiture, restitution; going concern, clawback, golden parachute; "unsealed today", "ill-gotten gains"; "declined to comment"; fork, patch, root, zero-day, backdoor, payload, exfil.
+- **Care:** don't glorify violence, consider victims and their families, and remember that documenting is not endorsing. Spell names phonetically where needed (references/suno/pronunciation.md). Re-check sourced facts after any section rewrite, reorder, or delete (references/album/personas-and-covers.md).
 
-**Three attribution modes**
-```
-Direct quote (verified):    He told the Times, "I never saw a dime"
-Paraphrase (reported):      He claimed he didn't know, played ignorant
-Narrator summary (multi):   The evidence mounted, day by day
-```
-Capture a real person's voice through the narrator: "I don't care about money, I just want the code to be free" becomes "He said he didn't care about the money / Just wanted the code to run free."
-
-**Mine the research for:**
-- **Specific human details:** not "he was smart" but "dropped out after one semester". Contradictions between public image and private reality. Habits, quirks, the decision that changed everything.
-- **Admissions, regret, defiance, denial, blame** from interviews and plea statements.
-- **Numbers and dates** that tell the story (losses, sentences, counts, years).
-- **Period language** for historical tracks. Early 1900s formal ("a most unfortunate occurrence"), 1920s-30s slang ("on the level"), 1950s Cold War ("subversive elements"), 1980s excess ("greed is good"), 1990s tech optimism ("information superhighway"). Check headlines and speeches from the era.
-- **Jargon that sings.** Source-domain terms make strong lines:
-  - Legal: superseding indictment, overt acts, allocution, forfeiture, restitution, cooperation agreement, guidelines range
-  - Financial: going concern, material adverse effect, restatement, impairment, clawback, golden parachute
-  - Government: "unsealed today", "ill-gotten gains", "brought to justice", "acting in concert"
-  - Journalism: "documents show", "declined to comment", "sources say"
-  - Tech and security: fork, upstream, patch, root, zero-day, backdoor, payload, C2, exfil, lateral movement, persistence
-
-**Handle with care**
-- **Sensitive subjects:** don't glorify violence. Consider victims and their families and descendants. Use era-appropriate terms while noting how language has changed. Documenting something is not endorsing it.
-- **Pronunciation:** names and places are where true-story tracks break. Spell every proper noun phonetically where needed (see references/suno/pronunciation.md).
-- **Later edits:** rewriting, reordering, or deleting sections after generation can drop a sourced fact or scramble the chronology. Re-check against the research notes (see references/album/personas-and-covers.md).
-
-**Release checklist additions:** all sources verified by the user; research notes and source list complete; every lyric checked against the sources; narrator voice throughout, with no impersonation. For writing craft and review, see references/lyrics/writing.md and references/lyrics/review.md.
+**Release additions:** sources verified by the user, research notes complete, lyrics checked against the sources, narrator voice throughout. For writing craft and review, see references/lyrics/writing.md and references/lyrics/review.md.
