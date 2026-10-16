@@ -36,12 +36,12 @@ A complete workflow for making music with Suno: from idea to released track. Eve
 - Ask only for what you can't sensibly choose yourself: topic, genre or vibe, and vocal type if it matters. If the user says "you choose" or "surprise me", pick and go.
 - Before presenting lyrics, run the quality checklist in `writing.md` and fix every violation. Don't wait to be asked.
 - Deliver a finished generation in this order:
-  1. **Style prompt** in its own code block, within Suno's character limit. Describe the sound; never use artist names.
-  2. **Lyrics** in their own code block with section tags, phonetic respellings applied, and no stage directions outside brackets.
-  3. **Exclude styles** if useful.
-  4. **Settings**: model, sliders, and persona if relevant.
+  1. **Style Box**: its own code block, within Suno's character limit. Describe the sound; never use artist names.
+  2. **Exclude Styles**: its own code block, if useful.
+  3. **Lyrics Box**: its own code block, with section tags and performance cues, phonetic respellings applied, and nothing outside brackets that shouldn't be sung.
+  4. **Generation Settings**: a small table with model, Variety, sliders, and voice/persona if relevant.
   5. A short note on choices and risks, such as pronunciation flags or density concerns.
-- For instrumentals, skip lyrics and build the style prompt plus structure tags only.
+- For instrumentals, skip lyrics and build the Style Box plus structure tags only.
 
 ## Limits
 

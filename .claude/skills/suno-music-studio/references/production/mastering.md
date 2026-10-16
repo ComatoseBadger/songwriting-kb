@@ -315,7 +315,7 @@ Everything not listed uses the default chain above. Where a genre's own conventi
 ### Hip-hop & rap
 | Genre(s) | LUFS | Dyn | EQ focus | Notes |
 |---|---|---|---|---|
-| hip-hop, rap, east-coast, west-coast, southern, gangsta, underground, mumble-rap, pop-rap, chicano-rap, g-funk, bounce, nerdcore, christian-hip-hop | −14 (convention −12 to −14) | M, punchy | HM −1; sub 40–60; vox 2–4k | Strong low end, clear vocal, punchy kick and snare |
+| hip-hop, rap, east-coast-hip-hop, west-coast-rap, southern-hip-hop, gangsta-rap, underground-hip-hop, mumble-rap, pop-rap, chicano-rap, g-funk, bounce, nerdcore, christian-hip-hop | −14 (convention −12 to −14) | M, punchy | HM −1; sub 40–60; vox 2–4k | Strong low end, clear vocal, punchy kick and snare |
 | boom-bap | −14 | M | HM −1; kick 60–100; snare 200–1k; vox 2–5k | Keep the dusty sampled drums; don't over-clean |
 | cloud-rap, plugg | −14 | L–M | HM −1; vox 2–5k; pads 200–600; sub 30–60; shimmer 8–12k | Airy and spacious |
 | conscious-hip-hop, jazz-rap, abstract-hip-hop | −14 | M | HM −1; vox 2–5k; sample warmth 200–600; bass 60–150 | Every word heard |
@@ -327,7 +327,7 @@ Everything not listed uses the default chain above. Where a genre's own conventi
 ### R&B, soul & funk
 | Genre(s) | LUFS | Dyn | EQ focus | Notes |
 |---|---|---|---|---|
-| r&b, soul, gospel, neo-soul, motown, northern-soul, psychedelic-soul | −14 (neo-soul optionally −16) | L–M to M | HM −1.5; vox 2–5k; bass 60–150; keys 200–600; tambourine 6–10k | Warm. Gospel needs choir clarity. Psych soul keeps its effects. |
+| r&b / rnb, soul, gospel, neo-soul, motown, northern-soul, psychedelic-soul | −14 (neo-soul optionally −16) | L–M to M | HM −1.5; vox 2–5k; bass 60–150; keys 200–600; tambourine 6–10k | Warm. Gospel needs choir clarity. Psych soul keeps its effects. |
 | funk, p-funk | −14 | M | HM −1.5; bass 40–150; horns 1–4k; perc 3–6k | Punchy groove; the low end is the foundation |
 | disco, nu-disco (cosmic −15), boogie, post-disco, new-jack-swing | −14 | M | HM −1; bass 60–200; kick 60–100; hats 8–12k | Bright but not harsh |
 | alternative-rnb, trap-soul | −14 | L–M | HM −1; vox 2–5k; 808 40–100; shimmer | Intimate detail |
@@ -371,7 +371,7 @@ Everything not listed uses the default chain above. Where a genre's own conventi
 | Genre(s) | LUFS | Dyn | EQ focus | Notes |
 |---|---|---|---|---|
 | edm\*†‡, electronic\*‡ | −14 (club convention −10 to −12) | H, consistent | HM −1; sub 30–50; sparkle 10k+ | For vinyl, go about 2 LU louder |
-| house, tech-house, deep-house, french-house, vocal-house, future-house, lo-fi-house, afro-house | −14 | M (deep house L–M) | HM −1; kick 40–80; bass 80–200; perc 2–5k | Rolling groove. Deep house keeps the air up top. |
+| house, tech-house, deep-house, french-house, vocal-house, future-house, lo-fi-house, afro-house, bass-house\* | −14 | M (deep house L–M; bass-house M–H) | HM −1; kick 40–80; bass 80–200; perc 2–5k | Rolling groove. Deep house keeps the air up top. |
 | progressive-house (deep prog −15), trance, vocal-trance, goa-trance, psychedelic-trance | −14 | L–M | HM −1; pads 200–600; leads 1–4k; sub 40–80 | Breakdown-to-peak arcs need room |
 | techno\*, minimal-techno, deep-techno | −14 | M / L–M | HM −1; kick 40–80; hats 8–12k | Power comes from micro-variation |
 | eurodance, electroswing, future-bass, tropical-house, nightcore, complextro, moombahton, future-funk, italo-disco, jersey-club, baile-funk, electro, dancehall | −14 | M (tropical L) | HM −1; kick/808 40–100; leads 1–8k; hats 8–12k | Keep the sidechain pump and build dynamics |
@@ -395,7 +395,7 @@ Everything not listed uses the default chain above. Where a genre's own conventi
 |---|---|---|---|---|
 | ambient, chillwave, vaporwave, downtempo, new-age, psybient, lounge | −16 | L / Min | HM −1; pads 200–600; gentle air | Spacious |
 | shoegaze | −16 | L–M | HM −1.5 | Wall of sound |
-| lo-fi | −14 | L | HM −1 (often none) | Warm and nostalgic |
+| lo-fi / lofi | −14 | L | HM −1 (often none) | Warm and nostalgic |
 | trip-hop | −14 | M | HM −1.5 | Dark and moody |
 | idm\* | −14 | M | HM −1; micro-transients 3–8k; bass 40–100 | Artifacts are intentional |
 | dark-ambient, drone, electroacoustic | −18 | Min | None; full spectrum; low body 20–200 | Minimal intervention |
