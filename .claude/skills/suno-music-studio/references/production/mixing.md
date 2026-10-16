@@ -126,7 +126,7 @@ This approach is less effective because it can't rebalance elements or target on
 | **Harshness / sibilance** | Piercing 2–5 kHz content (tinny), sharp "s" sounds at 5–8 kHz | Vocal high shelf −2 to −3 dB at 7 kHz. On a bright mix, take −1 to −2 dB from the 3–4 kHz area on the instrument stems. Leave the rest to the mastering cut at 3.5 kHz. | Don't stack big cuts in mix and master. On v6, check first, because sibilance is often already smeared. |
 | **Mud** | Thick, undefined low-mids at 150–400 Hz | −2 to −3 dB at 200 Hz (bass), 250 Hz (guitar), 300 Hz (keys and other). Go up to −3.5 to −4 dB for heavy guitars. | Don't over-cut warm genres (folk, jazz, soul). Reduce the cut there. |
 | **Metallic shimmer / "watery" swirl** | Phasey, chirpy highs, mostly in cymbals, reverb tails and pad stems. Caused by separation or generation. | Gentle high shelf −1 to −2 dB at 8–10 kHz on the affected stem. Low-pass the stem at 14–16 kHz if the genre allows. Reduce that stem's width. Try **Split from Mix** for a cleaner pull. Regenerate or replace the section if it's severe. | Don't hunt for narrow notches on a bleeding stem. Don't widen it. |
-| **Phasing / hollow mono** | The mix thins out or loses its vocal on a phone speaker or a mono Bluetooth speaker | Lower the width multipliers toward 1.0. Make the bass mono below about 120 Hz. Check that the L/R correlation stays above 0 and that mono-fold loss stays under 3 dB. | Don't add stereo wideners to v6 renders by default. |
+| **Phasing / hollow mono** | The mix thins out or loses its vocal on a phone speaker or a mono Bluetooth speaker | Lower the width multipliers toward 1.0. Make the bass mono below about 120 Hz. Check that the L/R correlation stays above 0 (ideally above 0.5) and that mono-fold loss stays under 3 dB (ideally under 1 dB). | Don't add stereo wideners to v6 renders by default. |
 | **Narrow image** (v6) | The whole mix sits in the middle | Modest per-stem width only: 1.1–1.3× on pads, backing vocals and strings. Keep bass, kick and lead vocal centered. Re-check mono afterward. | Don't try to fix this with style-prompt changes. It's a mix move. |
 | **Noise / hiss** | Steady background noise | Only for imported or recorded audio: spectral noise reduction at 0.3–0.5 | Don't run it on Suno-synthesized stems. |
 | **Clicks / pops** | Single-sample spikes in drums, percussion or instruments | Click repair: interpolate across the spike, using cubic spline on drums and percussion | Don't auto-declick vocals. Repair by hand if needed. |
@@ -267,9 +267,10 @@ ffmpeg -i vocals_polished.wav -i bvs_polished.wav -i drums_polished.wav -i bass_
 ffmpeg -i full_mix.wav -af "highpass=f=35:p=2,equalizer=f=250:t=q:w=1:g=-2,equalizer=f=3000:t=q:w=1.5:g=1.5,highshelf=f=7000:g=-1.5,acompressor=threshold=-15dB:ratio=2:attack=10:release=100" -c:a pcm_s24le full_mix_polished.wav
 ```
 
-**Mono-compatibility check.** Compare the integrated loudness of the stereo file and its mono fold. A drop of more than 3 LU, or a vanished vocal, means there are phase problems.
+**Mono-compatibility check.** Measure the stereo file, then a dual-mono fold. The fold puts the mid signal on both channels so the two loudness readings are comparable. A drop under 1 LU is fine. A drop of 1–3 LU calls for a listen. A drop above 3 LU, or a vanished vocal, means there are phase problems.
 ```bash
-ffmpeg -hide_banner -i mix_polished.wav -af "pan=mono|c0=0.5*c0+0.5*c1,ebur128" -f null - 2>&1 | grep -A1 "Integrated loudness"
+ffmpeg -hide_banner -i mix_polished.wav -af ebur128 -f null - 2>&1 | grep -A1 "Integrated loudness"
+ffmpeg -hide_banner -i mix_polished.wav -af "pan=stereo|c0=0.5*c0+0.5*c1|c1=0.5*c0+0.5*c1,ebur128" -f null - 2>&1 | grep -A1 "Integrated loudness"
 ```
 
 Notes on these commands:
