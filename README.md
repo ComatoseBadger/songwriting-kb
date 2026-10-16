@@ -60,6 +60,8 @@ songwriting-kb/
 ├── core/
 │   ├── methodology/           6 canonical method files (SINGLE SOURCE OF TRUTH)
 │   └── tenets.md              7 creative decision-making principles (conflict resolution)
+├── .claude/
+│   └── skills/suno-music-studio/  Standalone Claude skill — full Suno pipeline + 380-genre library
 ├── .kiro/
 │   ├── steering/              4 files — auto-loaded every session
 │   ├── agents/                5 thin agents — load core/methodology/ via #[[file:]]
@@ -131,6 +133,13 @@ WRITE → CRITIQUE → REVISE → OPTIMIZE → VERIFY → RENDER
 | **music-theory** | 12 disciplines, 23-point framework, 18 advanced concepts | Deep production analysis |
 | **character-voice** | Accent/dialect system, voice design template (vocal + non-vocal), instrumentation maps | Writing for characters |
 | **concept-album-blueprint** | Track registry, motifs, continuity rules (template + 2 examples) | Album work |
+
+### Claude skill: `suno-music-studio`
+
+`.claude/skills/suno-music-studio/` is a self-contained Claude skill (no MCP server, config, or folder layout required) covering the whole pipeline: concept → lyrics → review → compliance → pronunciation → Suno prompt → pre-generation check → mix → master → art → release & promo. It ships with a 380+ genre library (`references/genres/`) that has lyric conventions, density limits, and Suno keywords per genre.
+
+- **Claude Code**: auto-discovered when you work in this repo.
+- **Claude.ai / desktop**: zip the `suno-music-studio/` folder and upload it under Settings → Capabilities → Skills.
 
 ---
 

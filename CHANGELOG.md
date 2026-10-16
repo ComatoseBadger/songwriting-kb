@@ -7,6 +7,7 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 ### Added
+- `suno-music-studio` Claude skill (`.claude/skills/suno-music-studio/`) -- standalone end-to-end Suno pipeline (concept, lyrics, review, compliance, pronunciation, prompting, pre-generation check, mixing, mastering, art, release/promo) with a 380+ genre library. Adapted from a CC0 Claude Code plugin with all plugin, MCP server, config, state-tracking, and cloud-upload plumbing removed.
 - Temporal Specificity guideline (times, dates, numbers in lyrics) added to songwriting methodology, knowledge base, production theory, critique reference, and Suno rendering guide -- backed by 13 academic/professional sources (Pattison, Murphey, Werner, Perricone, Wilson, Jenkins, Stockwell, Gavins, Voice & Whiteley, Janiszewski & Uy, Mason et al., Kreyer & Mukherjee, NSAI)
 - `core/tenets.md` — 7 creative decision-making principles with academic basis (Pattison, Juslin, Dodge, Fabbri, Moore, Nashville A&R). Priority-ordered for resolving conflicts when methodology rules fight each other or artistic intent. Wired into songwriter + critic agents.
 - Artist Reference Conversion rule -- artist names in creative direction must be converted to descriptive production language (genre + era + instruments + production characteristics + vocal style + structural habits) before final output. Applied across all methodology, steering, reference, template, validator, and knowledge base files. Requested by 21machines.
