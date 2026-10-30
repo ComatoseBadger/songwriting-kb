@@ -8,12 +8,37 @@ Checks character counts, required elements, tag compliance, and formatting rules
 Usage:
     python3 tools/validate-song.py songs/my_song.md
     python3 tools/validate-song.py --json songs/*.md
+    python3 tools/validate-song.py --legacy old-song.md
 """
 
 import argparse
 import json
 import re
 import sys
+
+
+def package_sections(content):
+    """Read level-two package fields, preserving nested headings in their body."""
+    matches = list(re.finditer(r"^##[ \t]+([^\n]+)\n", content, re.M))
+    sections = {}
+    for i, match in enumerate(matches):
+        name = match.group(1).strip().rstrip(":").lower()
+        body = content[match.end():matches[i+1].start() if i+1 < len(matches) else len(content)]
+        body = re.sub(r"^---[ \t]*$", "", body, flags=re.M).strip()
+        if body.startswith("```") and body.endswith("```"):
+            body = body.split("\n", 1)[1].rsplit("```", 1)[0].strip()
+        sections[name] = body
+    return sections
+
+
+def field(body, name):
+    match = re.search(r"^[-*]?[ \t]*" + re.escape(name) + r":[ \t]*(.+)$",
+                      body, re.M | re.I)
+    return match.group(1).strip() if match else ""
+
+
+def normalized(value):
+    return re.sub(r"\W+", " ", value.lower()).strip()
 
 
 def parse_song_file(filepath):
@@ -34,7 +59,7 @@ def parse_song_file(filepath):
     # Extract Lyrics section (handles: ## LYRICS: / ## Lyrics / LYRICS:)
     # Terminates at next ## heading that starts a non-lyrics section
     lyrics_match = re.search(
-        r"^#{1,3}\s*LYRICS:?\s*$\n(.*?)(?=\n#{1,3}\s+(?!LYRICS)(?:PRODUCTION\s*NOTES|REVISION\s*NOTES|SLIDER|NOTES)\b|\Z)",
+        r"^#{1,3}\s*LYRICS:?\s*$\n(.*?)(?=\n#{1,3}\s+|\n---|\Z)",
         content, re.DOTALL | re.MULTILINE | re.IGNORECASE
     )
     lyrics_text = lyrics_match.group(1).strip() if lyrics_match else None
@@ -325,9 +350,9 @@ def check_artist_references(style_prompt, lyrics_text=None):
         return "PASS", found
 
 
-def validate_file(filepath):
+def validate_fields(filepath, parsed=None):
     """Run all validation checks on a file."""
-    style_prompt, lyrics_text, error = parse_song_file(filepath)
+    style_prompt, lyrics_text, error = parsed if parsed is not None else parse_song_file(filepath)
 
     if error:
         return {
@@ -527,6 +552,93 @@ def validate_file(filepath):
     }
 
 
+def validate_file(filepath, legacy=False):
+    """Validate package structure. Musical judgments remain human review tasks."""
+    if legacy:
+        return validate_fields(filepath)
+    try:
+        with open(filepath, encoding="utf-8") as source:
+            content = source.read()
+    except OSError:
+        return validate_fields(filepath)
+    sections = package_sections(content)
+    checks = []
+
+    def add(name, passed, detail):
+        checks.append({"name": name, "status": "PASS" if passed else "FAIL", "detail": detail})
+
+    def present(name):
+        body = sections.get(name.lower(), "")
+        # Template placeholders must never qualify as completed workflow records.
+        return bool(body.strip()) and not re.search(r"<[^>]+>|\bTODO\b", body, re.I)
+
+    styles = {k[len("style prompt "):].upper(): v for k, v in sections.items()
+              if re.fullmatch(r"style prompt [a-z0-9]+", k)}
+    intros = {k[len("intro concept "):].upper(): v for k, v in sections.items()
+              if re.fullmatch(r"intro concept [a-z0-9]+", k)}
+    add("Style Alternatives", len(styles) >= 2 and
+        len({normalized(v) for v in styles.values()}) == len(styles),
+        "At least two distinct Style Prompt sections required; meaningful contrast needs review")
+    for label, style in styles.items():
+        result = validate_fields(filepath, (style, sections.get("lyrics"), None))
+        for check in result["checks"]:
+            checks.append({**check, "name": f"Style {label}: {check['name']}"})
+    if not styles:
+        checks.extend(validate_fields(filepath)["checks"])
+    for name in ("Vocal Identity", "Intro Differentiation Gate", "Production Lock",
+                 "Advanced Options", "Production Notes", "Exclusions", "Lyrics"):
+        add(name, present(name), "Completed section required")
+    combined = present("Changes / Next Changes")
+    add("Changes / Next Changes", combined or (present("Changes") and present("Next Changes")),
+        "Describe completed edits and prioritized next steps (or explicitly none)")
+    voice = sections.get("vocal identity", "").strip()
+    add("Vocal Identity Reuse", bool(voice) and bool(styles) and
+        all(normalized(voice) in normalized(v) for v in styles.values()) and
+        normalized(voice) in normalized(sections.get("lyrics", "")),
+        "Repeat the voice anchor in every Style and Vocal Direction; listen for continuity")
+    required_intro = ("Mechanism", "First Sound", "Groove", "Vocal Entry", "Envelope", "Transition")
+    add("Intro Alternatives", len(intros) >= 2, "At least two Intro Concept sections required")
+    for label, intro in intros.items():
+        add(f"Intro {label} Fields", all(field(intro, key) for key in required_intro) and
+            not re.search(r"<[^>]+>|\bTODO\b", intro, re.I),
+            "Mechanism, First Sound, Groove, Vocal Entry, Envelope and Transition required")
+    mechanisms = [normalized(field(v, "Mechanism")) for v in intros.values()]
+    add("Intro Architectures", len(set(mechanisms)) == len(intros) and len(intros) >= 2,
+        "Use different opening mechanisms; synonym detection requires human review")
+    gate = sections.get("intro differentiation gate", "")
+    window = field(gate, "Window")
+    history = field(gate, "History")
+    add("Intro Review Window", bool(re.search(r"15\s*[-–]\s*20\s*seconds", window, re.I)),
+        "Window must specify 15–20 seconds")
+    unavailable = history.lower() == "unavailable"
+    references = [v for key in ("Track 1", "Track 2", "Track 3") if (v := field(gate, key))]
+    add("Intro History", bool(field(gate, "Comparison")) and (
+        (unavailable and bool(field(gate, "Limitation")) and not references) or
+        (history.lower() == "available" and bool(references) and
+         (len(references) == 3 or bool(field(gate, "Limitation"))))),
+        "Compare up to three named tracks; explain missing history explicitly")
+    lock = sections.get("production lock", "")
+    add("Production Selection", field(lock, "Status").lower() in {"draft", "locked"} and
+        field(lock, "Style").upper() in styles and field(lock, "Intro").upper() in intros,
+        "Status draft/locked and valid Style/Intro IDs required")
+    add("Gate Decision", field(gate, "Decision").lower() in {"pass", "revise", "provisional"} and
+        (field(lock, "Status").lower() != "locked" or
+         field(gate, "Decision").lower() == "pass" or
+         (unavailable and field(gate, "Decision").lower() == "provisional")),
+        "Locked requires pass, or provisional with disclosed unavailable history")
+    options = sections.get("advanced options", "")
+    add("Advanced Options Fields", all(field(options, k) for k in (
+        "Model", "Persona/Voice", "Weirdness", "Style Influence", "Audio Influence",
+        "Exclude", "Variety", "Max Mode")), "Record settings, N/A or unavailable explicitly")
+    add("v6 Model", field(options, "Model").lower() in {"v6", "v6-wild", "v6-mini"},
+        "New packages use the v6 family")
+    failures = sum(c["status"] == "FAIL" for c in checks)
+    warnings = sum(c["status"] == "WARN" for c in checks)
+    return {"file": filepath, "error": None, "checks": checks,
+            "result": "FAIL" if failures else "WARN" if warnings else "PASS",
+            "failures": failures, "warnings": warnings}
+
+
 def format_text_output(results):
     """Format results as human-readable text."""
     output_lines = []
@@ -592,11 +704,13 @@ def main():
         help="Output results as JSON",
     )
 
+    parser.add_argument("--legacy", action="store_true", help="Validate historical single-prompt files without v6 package checks")
+
     args = parser.parse_args()
 
     results = []
     for filepath in args.files:
-        results.append(validate_file(filepath))
+        results.append(validate_file(filepath, legacy=args.legacy))
 
     if args.json_output:
         print(json.dumps(results, indent=2))

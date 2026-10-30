@@ -232,3 +232,11 @@ Document the optimized version with:
 ---
 
 ## Time Estimate: 15-20 minutes per song
+
+## Current v6 precedence
+
+For new tracks, the current workflow in `core/methodology/suno-optimization.md`
+supersedes historical model, tag and single-prompt instructions in this SOP.
+Use `templates/suno-v6-song.md`: multiple Style and intro alternatives, stable vocal
+identity, first-15–20-seconds comparison with up to three prior tracks or a disclosed
+history limitation, Advanced Options, Changes and Next Changes before lock.
