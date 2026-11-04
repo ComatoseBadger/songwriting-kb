@@ -19,7 +19,7 @@ Every song output MUST include a detailed Production Notes section:
 • Tempo: [X] BPM — [justification]
 • Time Signature: [4/4 or 3/4 or 6/8]
 • Chord Progression: [Nashville numbers] / [actual chords in key]
-  (Different progressions for Verse, Pre-Chorus, Chorus, Bridge, Final Chorus)
+  (Describe each section; reuse or change progressions as the song needs)
 • Vocal: [Type + delivery description]
 • Instruments: [listed by prominence]
 • Dynamics: [section-by-section energy with arrows]
@@ -36,7 +36,7 @@ Always include these as consistency anchors:
 - `[Production Direction: ...]` — overall tone, dynamics arc, what to avoid
 - `[Vocal Direction: ...]` — voice type, delivery, emotional progression
 
-These survive regenerations and keep Suno consistent across iterations.
+These express continuity intent; listening must verify each generation.
 
 ## Artist Reference Conversion
 
@@ -71,9 +71,29 @@ Keep per-section tags like `[Sparse piano, room ambience]` — these guide instr
 
 - **Formula 1 (Vulnerability):** 70-85 BPM, minor, minimal, confession hook, specific lyrics, imperfect vocal. Men's mental health territory.
 - **Formula 2 (Anthem):** 90-110 BPM, minor→major lift, maximum production, chant hook, universal lyrics.
-- Know which formula a song is using and don't mix their rules.
+- These are optional reference shapes; combine or depart from them when the song benefits.
 
 ## Song Thesis
 
 Every song should have a one-sentence thesis stated at the top of the file:
 > *Song Thesis: The core truth this song expresses in a single sentence.*
+
+## Current v6 package requirements
+
+
+Follow `core/methodology/suno-optimization.md`, section "Current Suno v6 workflow".
+It supersedes legacy tags, model advice and fixed production formulas elsewhere.
+
+- Use `templates/suno-v6-song.md` for new complete packages.
+- Before lock: >=2 distinct Style prompts and >=2 distinct intro architectures.
+- Preserve the Vocal Identity anchor across alternatives; vary production freely.
+- Intro Differentiation Gate: compare first 15–20 seconds with previous three tracks
+  when available, documenting references/differences or unavailable history honestly.
+- Include Advanced Options, Changes and Next Changes in every complete package.
+- Keep metadata outside paste-ready Lyrics and Style; Exclude contains negatives only.
+- House budgets: Style <=1000 each, Lyrics <=5000. Count fields separately.
+- Preserve section-tag isolation, named layer declarations, artist conversion,
+  prosody, breath, hook and emotional-arc checks. No compulsory intro or song formula.
+- Bracket directives and exact slider recipes are heuristics, not guaranteed commands.
+- Official facts and dated primary sources are listed in the canonical methodology.
+- CLI defaults to v6; use `--legacy` for historical single-prompt files.

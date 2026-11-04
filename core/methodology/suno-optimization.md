@@ -7,6 +7,102 @@
 
 ---
 
+## Current Suno v6 workflow (2026-10-29)
+
+This section governs new tracks and supersedes conflicting legacy instructions below.
+The October 28–29 requirements are **user workflow policy**, not claims about Suno's parser.
+Use [the complete package template](../../templates/suno-v6-song.md).
+
+### Evidence and platform scope
+
+**Officially documented:** [Current Models](https://help.suno.com/en/articles/13924737)
+describes v6, v6-wild and v6-mini. The [v6 FAQ](https://help.suno.com/en/articles/13924481)
+states that earlier models are retired, Variety modifies Style prompts (0 retains control),
+and Max Mode uses more credits. These facts do not guarantee any particular render.
+[Creative Sliders](https://help.suno.com/en/articles/6141377) documents Weirdness and
+Style Influence, with Audio Influence for audio uploads.
+[Personas](https://suno.com/products/personas) carry a song's voice and style profile;
+this is support for continuity, not a guarantee of an identical singer.
+Sources checked 2026-10-29. Availability can depend on account, mode and UI.
+
+**House recommendations:** Style <=1000 characters per alternative and Lyrics <=5000
+are conservative repository budgets, not newly verified v6 platform ceilings.
+Genre-first, descriptor counts, era cues, exact slider ranges and bracket directives
+are creative heuristics. Tags such as `[control:]`, `[sequence:]`, `[Title:]`,
+`[Production Direction:]`, `[Vocal Direction:]` and `[end]` are house notation;
+no claim is made that v6 treats them as deterministic commands. Listen to the render.
+Do not move positive overflow into Exclude or invent an Advanced Settings text box.
+
+### Before production lock
+
+1. State the song thesis and a reusable **Vocal Identity** anchor: register, timbre,
+   phrasing/accent, clean/harsh balance and emotional delivery. Repeat that concise
+   anchor verbatim in each Style alternative. Keep the singer recognizable while
+   changing the arrangement. Record the selected Persona/Voice if available; audit
+   any automatically populated Style text for unwanted palette repetition.
+2. Provide at least **two meaningfully different Style prompts** in separate
+   `## Style Prompt A`, `## Style Prompt B` sections. Front-load the defining sound
+   and vocal identity; a useful starting constraint is <=2 genre anchors, 3–4 named
+   instruments and two mood/energy words. These are editing recommendations, not
+   parser limits. Change tempo feel, rhythmic engine, guitar/synth roles, ambience
+   and section-entry behavior rather than substituting synonyms. Count each prompt
+   independently. Keep alternatives visible after selection.
+3. Provide at least **two Intro Concepts** with different opening mechanisms.
+   Options include immediate full-band, vocal-first, bass-led, guitar-signature,
+   drum-led, cold verse or a custom architecture. For each, specify mechanism,
+   first sound, groove (kick/snare behavior), vocal entry, sound envelope and
+   transition into the next section. Connect the mechanism to the song's emotion.
+   Do not default to ambient swells, synth pulses, risers or gradual drum builds;
+   use them only with a specific musical reason. No fixed BPM, chord pattern,
+   section order, vocal effect or formula is mandatory across tracks.
+4. Run the **Intro Differentiation Gate** on the first **15–20 seconds** against
+   the previous **three tracks when available**. Name each reference and compare
+   first sound/envelope, groove, vocal entry and transition. Explain the audible
+   difference and revise a repeated fingerprint. With fewer tracks, list those
+   available; with none, record `History: unavailable` and explain why. Never invent
+   comparisons. A text plan is provisional until audio is heard.
+5. Record `Production Lock` status (`draft` or `locked`) and selected Style/Intro
+   IDs. Lock only after alternatives, voice continuity and gate review. If history
+   is unavailable, explicitly disclose that limitation. A locked document records
+   an arrangement decision, not proof of audio quality.
+
+### Complete output and controlled iteration
+
+Keep output in ordinary chat unless a file is requested. Include thesis, Vocal
+Identity, Style alternatives, Intro Concepts, Intro Differentiation Gate, Production
+Lock, Exclusions, Lyrics, Production Notes, **Advanced Options**, **Changes** and
+**Next Changes**. The validator accepts the combined `Changes / Next Changes` heading
+as well. Metadata stays outside the paste-ready Lyrics and Style blocks.
+
+Preserve craft checks: emotional progression, distinct verse development, strong
+hook, natural language, rhyme that serves meaning, breath placement, prosody,
+section contrast, named vocal layers and artist-reference conversion. Retain key,
+BPM, time signature, Nashville AND actual chords, vocal description, instrument
+prominence, dynamics, hook placement, rhyme scheme and emotional arc in Production
+Notes. Choose these for this song, rather than filling a recurring formula.
+
+Advanced Options must record Model, Persona/Voice, Weirdness, Style Influence,
+Audio Influence (or N/A), Exclude, Variety and Max Mode (or unavailable). Explain
+song-specific recommendations and tradeoffs; do not impose universal values.
+For controlled comparisons, Variety 0 is a useful recommendation because the FAQ
+says it preserves Style control. Keep paid generation manual unless authorized.
+
+Changes describes edits already made (or explicitly none); Next Changes gives
+prioritized optional improvements and a listening test. Change one variable at a
+time during diagnosis. Recheck singer identity and first 15–20 seconds after renders.
+
+### Validation contract
+
+`python3 tools/validate-song.py song.md` validates the v6 package by default.
+`--legacy` retains the older single-prompt format for historical files. Every Style
+alternative gets the existing length, genre, tag-count, artist and layer checks.
+The v6 checks enforce visible sections, distinct alternatives and intro mechanisms,
+voice-anchor reuse, gate documentation and selection references. They cannot judge
+musical distinctness, hear audio, or certify vocal continuity. Human listening is
+required even when structural checks pass.
+
+## Legacy reference (v4.5–v5.5; not v6 guarantees)
+
 ## Overview
 
 Suno optimization is the FINAL technical pass before rendering. It does NOT change creative content -- it adds technical formatting that ensures Suno produces the best possible output. If the song was written with the full songwriting procedure (which includes formatting), this SOP functions as a verification pass.
@@ -335,7 +431,7 @@ Every Suno-ready song MUST have:
 
 ---
 
-## v5.5 Features (UI Controls)
+## Historical v5.5 feature notes (verify availability in current UI)
 
 These are set in the Suno interface, not in text fields:
 

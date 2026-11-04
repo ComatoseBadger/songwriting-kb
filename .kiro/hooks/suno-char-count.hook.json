@@ -1,13 +1,15 @@
 {
   "name": "Suno Character Count",
-  "version": "1.0.0",
-  "description": "Checks Style Prompt ≤1000 chars and Lyrics field ≤5000 chars on song file save, flags overflows with specific counts",
+  "version": "2.0.0",
+  "description": "Check each v6 Style alternative and Lyrics against house character budgets",
   "when": {
     "type": "fileEdited",
-    "patterns": ["songs/**/*.md"]
+    "patterns": [
+      "songs/**/*.md"
+    ]
   },
   "then": {
     "type": "askAgent",
-    "prompt": "Check this song file's character counts against Suno limits. Measure: 1) Style Prompt section (from 'STYLE PROMPT:' through [Exclusions:]) — limit 1000 chars, 2) Lyrics section (from [Title:] through last lyric/tag before Production Notes, including all section tags and direction blocks) — limit 5000 chars. Report: 🚨 if OVER limit with exact count and suggestion, ⚠️ if within 10% of limit, ✅ if safely within limits."
+    "prompt": "Count each Style Prompt A/B/etc payload separately against the repository budget of 1000 characters, excluding Markdown fences and Exclusions. Count only the Lyrics field payload, including tags, against the house budget of 5000. Stop at the next package heading; never count Advanced Options, intro concepts, gate records, Production Notes or change logs as lyrics. Report exact counts and overflows; warn above 900 Style or 4500 Lyrics. These are house budgets, not newly verified v6 platform ceilings. Follow core/methodology/suno-optimization.md and use tools/validate-song.py when execution is available."
   }
 }

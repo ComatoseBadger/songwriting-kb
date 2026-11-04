@@ -1,13 +1,15 @@
 {
   "name": "Song Format Validation",
-  "version": "1.0.0",
-  "description": "Validates that new song files contain all required sections (Style Prompt, Exclusions, Title tag, Production/Vocal Direction blocks, Production Notes)",
+  "version": "2.0.0",
+  "description": "Validate v6 song package structure and songwriting quality",
   "when": {
     "type": "fileCreated",
-    "patterns": ["songs/**/*.md"]
+    "patterns": [
+      "songs/**/*.md"
+    ]
   },
   "then": {
     "type": "askAgent",
-    "prompt": "Validate this new song file contains all required sections: 1) Style Prompt (comma-separated descriptors), 2) [Exclusions: ...], 3) [Title: Song Name] tag, 4) [Production Direction: ...] block, 5) [Vocal Direction: ...] block, 6) Section tags (at minimum Verse + Chorus), 7) Production Notes with Key, Tempo, Time Sig, Chord Progression (Nashville + actual), Vocal, Instruments, Dynamics, Hook Type, Rhyme Scheme, Emotional Arc. Flag missing sections with ⚠️ MISSING or confirm ✅ if all present. Also check Style Prompt under 1000 chars and lyrics estimatable under 5000 chars."
+    "prompt": "Follow core/methodology/suno-optimization.md current v6 workflow and templates/suno-v6-song.md. Validate multiple distinct Style prompts and Intro Concepts before lock, Vocal Identity reuse, Intro Differentiation Gate comparing first 15\u201320 seconds against up to three prior tracks (or explicit history limitation), valid production selection, Advanced Options, Changes and Next Changes. Retain checks for title, Production/Vocal Direction, isolated section tags and complete Production Notes (key, BPM, meter, Nashville + actual chords, vocal, instruments, dynamics, hook, rhyme, emotional arc). Count each Style separately and only the Lyrics payload. Use tools/validate-song.py if execution is available. Human review must assess meaningful intro contrast, prosody, breath, hook and singer continuity; structural PASS is not an audio guarantee. Use --legacy only for explicitly historical single-prompt files."
   }
 }

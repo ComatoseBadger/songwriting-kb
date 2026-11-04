@@ -144,3 +144,15 @@ All notable changes to this project will be documented in this file.
 - Music production theory (12 disciplines)
 - 4 agents, 5 skills, 8 SOPs, 4 steering files, 3 hooks
 - Songwriting power bundle
+
+## 2026-10-29 — Suno v6 workflow upgrade
+
+- Added canonical v6 package requirements, evidence boundaries and primary sources.
+- Added Style/intro alternatives, voice continuity, differentiation gate and production selection.
+- Updated steering, Kiro hooks/optimizer/SOP guidance, song and experiment templates.
+- Added Advanced Options and Changes / Next Changes; removed mandatory fixed formula guidance.
+- Validator defaults to v6 packages; `--legacy` preserves historical single-prompt checks.
+- Added 25 regression tests, a structural example and GitHub Actions test workflow.
+- Validation: 25 unit tests pass; new structural example passes; `git diff --check` passes.
+- Existing Shadow_Behind_My_Eyes_SUNO_READY example still has the same five failures
+  and one warning found by the original validator; historical song content was not rewritten.

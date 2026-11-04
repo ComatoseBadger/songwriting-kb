@@ -370,66 +370,17 @@ See `core/methodology/album-continuity.md` for the full continuity system.
 
 ## Complete Output Format
 
-Every finished song file must contain:
-
-```
-# [Title] -- [Context]
-
-> Song Thesis: *[One sentence core truth]*
-
----
-
-## STYLE PROMPT:
-[Comma-separated: Genre, BPM, Mood, Instruments, Vocal, Production]
-
-[Exclusions: -item, -item]
-
----
-
-## LYRICS:
-
-[Title: Song Title]
-
-[Production Direction: ...]
-[Vocal Direction: ...]
-
-[track: genre: X, mood: X, length: XXX]
-[control: no-repeat, dynamic transitions]
-[sequence: ...]
-
-[section tags + lyrics with pipe notation]
-
-[end]
-
----
-
-## PRODUCTION NOTES:
-
-- Key: -- reasoning
-- Tempo: BPM -- reasoning
-- Time Signature:
-- Chord Progression: Nashville / actual (per section)
-- Vocal:
-- Instruments:
-- Dynamics:
-- Hook Type:
-- Rhyme Scheme:
-- Emotional Arc:
-
----
-
-## SLIDER RECOMMENDATIONS:
-
-- Weirdness: XX%
-- Style Influence: XX%
-- Audio Influence: XX% (if applicable)
-```
+For new Suno v6 packages use [templates/suno-v6-song.md](../../templates/suno-v6-song.md)
+and the current workflow in [suno-optimization.md](suno-optimization.md).
+Before production lock, show multiple Style prompts and intro concepts, preserve vocal
+identity, and document the first-15–20-seconds differentiation gate. Always include
+Advanced Options, Changes and Next Changes alongside the existing production notes.
 
 ---
 
 ## Hit Formula Awareness
 
-Two primary formulas to understand (do not mix their rules):
+Two optional reference shapes; vary or combine them when the song benefits:
 
 | Element | Formula 1 (Vulnerability) | Formula 2 (Anthem) |
 |---|---|---|

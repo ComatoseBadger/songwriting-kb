@@ -4,7 +4,7 @@
 experiment_name: ""
 date: "YYYY-MM-DD"
 experimenter: ""
-suno_version: "v5.5"
+suno_version: "v6"
 
 # What are you testing?
 claim_under_test: ""
@@ -58,3 +58,18 @@ retest_by: ""   # YYYY-MM-DD (Suno updates frequently)
 # If promoted to methodology, note where:
 promoted_to: ""
 # Example: "core/methodology/suno-optimization.md, section 'Era Anchoring'"
+
+# Preserve singer identity while testing arrangement differences.
+vocal_identity: ""
+style_alternatives: []
+intro_concepts: []
+selected_style: ""
+selected_intro: ""
+first_15_to_20_seconds_review:
+  prior_tracks: []  # up to three; never fabricate history
+  history_limitation: ""
+  audible_differences: ""
+  vocal_continuity: ""
+settings_notes: ""  # include Variety, Max Mode and account availability
+changes: []
+next_changes: []
