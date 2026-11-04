@@ -31,6 +31,14 @@ Use the same concise Vocal Identity sentence verbatim in both prompts and Vocal 
 - Envelope: <contrasting attack, sustain and space>
 - Transition: <different handoff into next section>
 
+## Intro Concept C
+- Mechanism: <a third mechanism, such as drum-led>
+- First Sound: <specific contrasting opening sound>
+- Groove: <kick/snare pattern distinct from A and B>
+- Vocal Entry: <entry timing and delivery>
+- Envelope: <attack, sustain and space>
+- Transition: <distinct handoff into the next section>
+
 ## Intro Differentiation Gate
 - Window: 15–20 seconds
 - History: <available or unavailable>
@@ -43,8 +51,8 @@ Use the same concise Vocal Identity sentence verbatim in both prompts and Vocal 
 
 ## Production Lock
 - Status: <draft or locked>
-- Style: <A or B>
-- Intro: <A or B>
+- Style: <A, B or another supplied Style label>
+- Intro: <A, B or C>
 
 ## Exclusions
 <Plain comma-separated negatives for the dedicated Exclude field; or none>

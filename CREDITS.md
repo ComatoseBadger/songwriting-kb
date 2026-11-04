@@ -68,6 +68,12 @@ Brian forked the repo, conducted a thorough methodology review, and submitted [P
 
 ---
 
+## Adapted Material
+
+- **`.claude/skills/suno-music-studio/`** -- adapted from [claude-ai-music-skills](https://github.com/bitwize-music-studio/claude-ai-music-skills) (CC0 1.0). Craft content and genre library kept; plugin infrastructure removed.
+
+---
+
 ## Tools & Platforms
 
 - **[Kiro](https://kiro.dev)** — IDE automation layer (agents, skills, hooks, steering, powers)

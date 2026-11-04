@@ -623,9 +623,8 @@ def validate_file(filepath, legacy=False):
         "Status draft/locked and valid Style/Intro IDs required")
     add("Gate Decision", field(gate, "Decision").lower() in {"pass", "revise", "provisional"} and
         (field(lock, "Status").lower() != "locked" or
-         field(gate, "Decision").lower() == "pass" or
-         (unavailable and field(gate, "Decision").lower() == "provisional")),
-        "Locked requires pass, or provisional with disclosed unavailable history")
+         field(gate, "Decision").lower() == "pass"),
+        "Locked requires pass; provisional comparisons remain draft")
     options = sections.get("advanced options", "")
     add("Advanced Options Fields", all(field(options, k) for k in (
         "Model", "Persona/Voice", "Weirdness", "Style Influence", "Audio Influence",

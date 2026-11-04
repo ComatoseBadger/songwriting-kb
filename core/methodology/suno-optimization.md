@@ -63,7 +63,8 @@ Do not move positive overflow into Exclude or invent an Advanced Settings text b
    comparisons. A text plan is provisional until audio is heard.
 5. Record `Production Lock` status (`draft` or `locked`) and selected Style/Intro
    IDs. Lock only after alternatives, voice continuity and gate review. If history
-   is unavailable, explicitly disclose that limitation. A locked document records
+   is unavailable, explicitly disclose that limitation and keep status draft while
+   the comparison is provisional. A locked document records
    an arrangement decision, not proof of audio quality.
 
 ### Complete output and controlled iteration

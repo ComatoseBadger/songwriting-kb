@@ -1,9 +1,9 @@
 name: Song validator tests
 on:
   push:
-    paths: ['tools/**', 'tests/**', 'templates/**', '.github/workflows/validate-song-tests.yml']
+    paths: ['.claude/skills/suno-music-studio/**', 'tools/**', 'tests/**', 'templates/**', '.github/workflows/validate-song-tests.yml']
   pull_request:
-    paths: ['tools/**', 'tests/**', 'templates/**', '.github/workflows/validate-song-tests.yml']
+    paths: ['.claude/skills/suno-music-studio/**', 'tools/**', 'tests/**', 'templates/**', '.github/workflows/validate-song-tests.yml']
 permissions:
   contents: read
 jobs:
