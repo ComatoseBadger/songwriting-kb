@@ -1,6 +1,6 @@
 # Songwriting Knowledge Base
 
-A professional song production system combining Nashville/LA co-writing craft, academic music theory (12 disciplines), Suno AI v5.5 formatting expertise, and concept album continuity management — with a complete Kiro IDE automation layer and platform-neutral methodology usable by any AI assistant.
+A professional song production system combining Nashville/LA co-writing craft, academic music theory (12 disciplines), Suno v6 workflow and formatting guidance, and concept album continuity management — with a complete Kiro IDE automation layer and platform-neutral methodology usable by any AI assistant.
 
 ---
 
@@ -129,7 +129,7 @@ WRITE → CRITIQUE → REVISE → OPTIMIZE → VERIFY → RENDER
 | Skill | Contains | Activate When |
 |---|---|---|
 | **song-critique** | 12-category rubric, 5 advanced assessments, Suno optimization (7-point dimensional check + style alternatives), flag patterns | Evaluating any song |
-| **suno-meta-tags** | 35+ confirmed tags, v5.5 features, layers, sliders, era tags | Formatting for Suno |
+| **suno-meta-tags** | Legacy tag catalog, current v6 workflow, layers, sliders | Formatting for Suno |
 | **music-theory** | 12 disciplines, 23-point framework, 18 advanced concepts | Deep production analysis |
 | **character-voice** | Accent/dialect system, voice design template (vocal + non-vocal), instrumentation maps | Writing for characters |
 | **concept-album-blueprint** | Track registry, motifs, continuity rules (template + 2 examples) | Album work |
@@ -137,6 +137,8 @@ WRITE → CRITIQUE → REVISE → OPTIMIZE → VERIFY → RENDER
 ### Claude skill: `suno-music-studio`
 
 `.claude/skills/suno-music-studio/` is a self-contained Claude skill (no MCP server, config, or folder layout required) covering the whole pipeline: concept → lyrics → review → compliance → pronunciation → Suno prompt → pre-generation check → mix → master → art → release & promo. It ships with a 380+ genre library (`references/genres/`) that has lyric conventions, density limits, and Suno keywords per genre.
+
+The portable [v6 workflow contract](.claude/skills/suno-music-studio/references/suno/v6-workflow.md) governs new Claude packages: multiple Style alternatives, three intro concepts by default, stable vocal identity, first-15–20-seconds differentiation, Advanced Options, Changes and Next Changes. Genre conventions are creative options. Single-field examples do not replace the complete package. The repository validator checks a two-intro compatibility minimum; the creative default is three. Listening remains necessary for voice and intro approval.
 
 - **Claude Code**: auto-discovered when you work in this repo.
 - **Claude.ai / desktop**: zip the `suno-music-studio/` folder and upload it under Settings → Capabilities → Skills.
@@ -162,7 +164,7 @@ WRITE → CRITIQUE → REVISE → OPTIMIZE → VERIFY → RENDER
 | File | Purpose |
 |---|---|
 | `songwriting.md` | Core principles + 9-step workflow + quality gates |
-| `suno-formatting.md` | Suno rules, limits, tags, sliders, v5.5 features, era tags, layers |
+| `suno-formatting.md` | Suno rules, limits, tags, v6 packages, intro differentiation, evidence boundaries |
 | `output-preferences.md` | Output format, layers, hit formulas (customize for your own) |
 | `concept-album.md` | Album continuity framework + setup guide (universal) |
 
@@ -174,7 +176,7 @@ WRITE → CRITIQUE → REVISE → OPTIMIZE → VERIFY → RENDER
 | Field | Limit | Notes |
 |---|---|---|
 | Style of Music | 1000 chars | Genre, BPM, mood, instruments, vocal |
-| Lyrics | 5000 chars | Confirmed June 2026 — must fit, no overflow |
+| Lyrics | 5000 chars | House budget — not a verified v6 ceiling |
 | Exclude | Dedicated field | Negative prompts ONLY (plain text, no dash prefix) |
 
 ### Creative Sliders
@@ -184,13 +186,22 @@ WRITE → CRITIQUE → REVISE → OPTIMIZE → VERIFY → RENDER
 | Style Influence | 50% | 50-60% | How much Style Prompt steers output |
 | Audio Influence | ~45% | 45% | Reference track weight (Inspo only) |
 
-### v5.5 Features (UI — not text tags)
-| Feature | What It Does | Album Use |
-|---|---|---|
-| **Personas/Voices** | Lock vocal identity from your own sample | Same voice across all character tracks |
-| **Stems (12-track)** | Extract vocals, drums, bass, guitar, keys, strings, synth, brass, perc, backing, FX, other | DAW mixing for album consistency |
-| **Custom Models** | Train Suno on your completed tracks | Learn your sound for future songs |
-| **My Taste** | AI learns your preferences over time | Better defaults on quick sessions |
+### Current v6 workflow
+
+See [canonical methodology](core/methodology/suno-optimization.md) and
+[complete template](templates/suno-v6-song.md). New packages require multiple Style
+alternatives and intro architectures before lock, stable vocal identity, a first
+15–20 seconds comparison with up to three prior tracks, Advanced Options, Changes
+and Next Changes. These are user workflow policies, not Suno engine guarantees.
+Official platform facts and creative recommendations are labeled separately there.
+The field budgets below/above are conservative house budgets; legacy tag examples
+are creative cues and do not establish v6 parser behavior.
+
+```bash
+python3 tools/validate-song.py songs/my_song.md
+python3 tools/validate-song.py --legacy examples/songs/standalones/Shadow_Behind_My_Eyes_SUNO_READY.md
+python3 -m unittest discover -s tests -v
+```
 
 ### Parenthetical Layers — `()` in Lyrics
 | Pattern | Effect | Style Prompt Needed? |
@@ -298,7 +309,7 @@ Seven priority-ordered principles for resolving creative conflicts. Full details
 9. Pitching & Industry Standards
 10. Songwriter's Workflow & Exercises
 11. Quick Reference Cheat Sheets
-12. Suno AI Complete System (formatting, duet modes, layers, hit formulas, v5.5, era tags, specificity)
+12. Suno AI Complete System (formatting, duet modes, layers, legacy hit formulas and tags; current v6 workflow in core/methodology, specificity)
 13. **Suno Advanced Meta-Tags & v5.0/5.5** (35+ tags, pipe notation, controls, sliders, stems, personas)
 
 ### MUSIC_PRODUCTION_THEORY.md
@@ -464,7 +475,7 @@ This checks character counts, required elements, tag compliance, and formatting 
 - Dodge et al. 2025 (6 universal evaluation criteria for popular music)
 - stayen/suno-reference (November 2025 — v5.0 meta-tags)
 - Suno AI official documentation + community testing (2025-2026)
-- Suno community research: prompt formula (genre-first, 5-8 tags), era anchoring, genre combinations (70/30 rule), slider behavior, v5.5 features
+- Suno community research: prompt formula (genre-first, 5-8 tags), era anchoring, genre combinations (70/30 rule), slider behavior, historical model observations
 - Battle-tested prompt engineering (real Suno playlist prompts)
 - iZotope, The Song Foundry, American Songwriter, Nashville Guitar Studios
 

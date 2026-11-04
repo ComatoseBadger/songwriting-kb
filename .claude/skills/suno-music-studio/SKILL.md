@@ -10,9 +10,10 @@ A complete workflow for making music with Suno: from idea to released track. Eve
 ## How to use this skill
 
 1. Work out which stage the request belongs to (table below). Most requests touch one or two stages. "Write me a song about X" runs stages 2 → 3 → 4 → 5 → 6 in one pass.
-2. Read the reference files for that stage **before** producing output. They hold the rules, numbers, and checklists. Don't work from memory.
-3. Check the genre profile at `references/genres/<slug>/README.md` whenever a genre is known. It sets the rhyme scheme, verse density, structure, tempo, and Suno keywords. Use `references/genres/INDEX.md` to find the slug or to suggest genres. Artist deep-dives are in `references/genres/<slug>/artists/`.
-4. If the user has stated preferences (style, vocabulary, loudness, explicit content, tag habits), those win over defaults here.
+2. For new songs, Suno packages and production revisions, read `references/suno/v6-workflow.md` first. It governs the package and overrides simpler examples in other references. Run stage 7 before generation; do not silently production-lock a draft. For narrow edits or critique, preserve the requested scope.
+3. Read the reference files for that stage **before** producing output. They hold the rules, numbers, and checklists. Don't work from memory.
+4. Check the genre profile at `references/genres/<slug>/README.md` whenever a genre is known. It offers rhyme, density, structure, tempo and keyword options; choose what serves this song rather than imposing genre defaults. Use `references/genres/INDEX.md` to find the slug or to suggest genres. Artist deep-dives are in `references/genres/<slug>/artists/`.
+5. If the user has stated preferences (style, vocabulary, loudness, explicit content, tag habits), those win over defaults here.
 
 ## Pipeline
 
@@ -35,13 +36,9 @@ A complete workflow for making music with Suno: from idea to released track. Eve
 
 - Ask only for what you can't sensibly choose yourself: topic, genre or vibe, and vocal type if it matters. If the user says "you choose" or "surprise me", pick and go.
 - Before presenting lyrics, run the quality checklist in `writing.md` and fix every violation. Don't wait to be asked.
-- Deliver a finished generation in this order:
-  1. **Style Box**: its own code block, within Suno's character limit. Describe the sound; never use artist names.
-  2. **Exclude Styles**: its own code block, if useful.
-  3. **Lyrics Box**: its own code block, with section tags and performance cues, phonetic respellings applied, and nothing outside brackets that shouldn't be sung.
-  4. **Generation Settings**: a small table with model, Variety, sliders, and voice/persona if relevant.
-  5. A short note on choices and risks, such as pronunciation flags or density concerns.
-- For instrumentals, skip lyrics and build the Style Box plus structure tags only.
+- Deliver the complete package specified in `references/suno/v6-workflow.md`: title, stable Vocal Identity, multiple Style alternatives, three distinct intro concepts, Intro Differentiation Gate, draft/lock selection, Exclusions, full tagged Lyrics, Production Notes and lyric QC, Advanced Options, Changes and selectable Next Changes. Keep copyable fields in separate code blocks and artist references outside prompts.
+- Preserve approved lyrics and persona; obtain authorization for changes to locked content. Vary arrangements without imposing a fixed songwriting formula.
+- For instrumentals, use the instrumental branch in that contract; retain alternatives and intro checks without inventing vocals.
 
 ## Limits
 

@@ -1,5 +1,7 @@
 # Building a Suno Generation
 
+Read [the v6 workflow contract](v6-workflow.md) first for every new package. It governs alternatives, identity, intros, lock and presentation; the single Style examples below illustrate individual fields only.
+
 How to turn a finished song (or an instrumental concept) into Suno inputs: the Style Box, the Lyrics Box, Exclude Styles and the Generation Settings. Tag vocabularies live in [tags.md](tags.md); model and slider detail in [models-and-sliders.md](models-and-sliders.md); phonetic fixes in [pronunciation.md](pronunciation.md); the final gate in [pre-generation-check.md](pre-generation-check.md).
 
 Facts about Suno's UI and models below reflect the v6 family as of mid-September 2026. Suno changes fast; re-check limits and defaults if something behaves differently.
@@ -13,7 +15,7 @@ If the user has stated preferences (genre mappings such as "my dark-electronic =
 1. **Suno is literal.** Simple, clear prompts work best. Say what you want directly.
 2. **Work in Advanced Mode only.** Simple Mode treats typed lyrics as a seed and writes extra lines; switching to Advanced does not carry the prompt across. All the controls that matter (Vocal Gender, Duration, sliders, Exclude Styles, Variety, Max Mode) are under More Options in Advanced Mode.
 3. **Variety Off** whenever you engineered the Style Box. At any setting above Off, Suno rewrites and expands the style prompt before the model sees it. Defaults to Normal on v6 / v6-mini / Custom Models, Off on v6-wild — check it every session, the default reasserts when you switch models.
-4. **Vocals first** in the Style Box.
+4. **Front-load the defining sound and stable vocal identity**; follow the v6 contract across every alternative.
 5. **Every section gets a structure tag, and every tag gets a Performance Cue** (`[Verse 1 - cold regal]`). Bare `[Verse]`/`[Chorus]` tags are a common cause of flat, generic output.
 6. **Never put an artist or band name in the Style Box.** Describe the sound instead (see [Artist Name Blocklist](#artist-name-blocklist)).
 7. **Prompts written for pre-v6 models do not transfer.** Re-prompt; don't rerun.
@@ -34,7 +36,7 @@ Formula: simple prompt + good lyrics + section tags with cues + user preferences
 | Weirdness / Style Influence / Audio Influence | defaults 50 / 50 / 25 | Audio Influence appears only with uploaded audio |
 | Credits | 10 per generation (two songs); 20 with Max Mode | same on v6, v6-wild, v6-mini |
 
-Present the final Style Box, Exclude Styles and Lyrics Box to the user in **separate code blocks** so each is easy to copy into its field, followed by the Generation Settings as a small table.
+Present each Style alternative, Exclusions and Lyrics in **separate code blocks** within the complete [v6 package](v6-workflow.md). Generation Settings belong under **Advanced Options**; always include **Changes** and **Next Changes**. A selected Style field does not replace the alternatives and review record.
 
 ---
 
@@ -49,9 +51,9 @@ Present the final Style Box, Exclude Styles and Lyrics Box to the user in **sepa
 7. **Check for sound effects / atmosphere** in the lyrics (rain, footsteps, crowds, laughter) and add matching tags; environmental sounds go in both the Lyrics Box and the Style Box.
 8. **Add Performance Cues** to every structure tag so the emotional arc plays out section by section.
 9. **Choose model and settings** per [Generation Settings](#generation-settings).
-10. **Build the Style Box** (vocals first), populate Exclude Styles if needed, then review the descriptor mix and collapse synonym piles.
+10. **Build at least two Style alternatives** with the same Vocal Identity anchor; vary the musical arrangement. Draft three distinct intro concepts and record the first-15–20-seconds comparison against up to three previous tracks, or disclose unavailable history, per [the v6 contract](v6-workflow.md). Populate Exclusions, Advanced Options, Changes and Next Changes.
 11. **Run the final gate** in [pre-generation-check.md](pre-generation-check.md).
-12. **Generate.** On v6-wild budget two or three generations before judging; its length is unpredictable (~50 s to ~7 min on similar prompts).
+12. **Generate an exploratory draft only after the gate permits it; production lock requires resolved selections and listening checks.** On v6-wild budget two or three generations before judging; its length is unpredictable (~50 s to ~7 min on similar prompts).
 13. **Iterate one change per pass** (see [Common Issues & Fixes](#common-issues--fixes)) and log every attempt: model, settings, Style Box, verdict.
 
 ---
@@ -189,7 +191,7 @@ Emotion words ("defiant", "powerful", "heartbroken") describe intent, which Suno
 
 ### With a Voice or Custom Model
 
-- **Voice attached**: drop gender/register descriptors (the Voice carries them). Keep 1–2 genres plus instrumentation. Max Mode On. Voices cannot be used on instrumentals.
+- **Voice attached**: retain the exact Vocal Identity anchor across alternatives under the v6 contract; avoid contradictory gender/register additions. Keep 1–2 genres plus instrumentation. Max Mode On. Voices cannot be used on instrumentals.
 - **Custom Model**: drop generic production language ("glossy", "modern pop production") — the model already encodes the aesthetic. Keep genre, tempo, featured instruments and section-level direction.
 
 ---

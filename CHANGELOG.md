@@ -20,6 +20,9 @@ All notable changes to this project will be documented in this file.
 - Eerola, Friberg & Bresin (2013) properly attributed for emotional cue hierarchy
 
 ### Changed
+- Coordinated PR #1's v6 workflow with PR #2's portable Claude skill: routing, prompting, pre-generation and persona references now preserve Style alternatives, three intro proposals, stable vocal identity, differentiation, Advanced Options and Changes / Next Changes. Genre library preserved unchanged; conventions remain options, not formulas.
+- Kept provisional intro comparisons in draft rather than permitting a production lock.
+- Added 12 integration regressions (37 tests total) and CI coverage for Claude skill changes; structural readiness is separate from auditory approval and production lock.
 - Renamed "bible" to "blueprint" across entire repository -- all files, references, skill names, and documentation updated (case-preserving: BIBLE->BLUEPRINT, Bible->Blueprint, bible->blueprint)
 - Expanded trigger keywords in all agent description fields and POWER.md keywords array for better activation matching
 - Emotional cue hierarchy attribution corrected from Juslin/Gabrielsson to Eerola, Friberg & Bresin (2013, Frontiers in Psychology 4, Article 487)
@@ -30,6 +33,20 @@ All notable changes to this project will be documented in this file.
 - Quality gate language softened from absolute rules to professional heuristic checks [Tier 2]: syllable limits, hook timing, V2 novelty, bridge turn, ABCB scheme
 - Suno-specific claims labeled [Tier 3] with version notes: 5-8 tags, genre-first, era anchoring
 - Key-emotion mapping split: mode effects [Tier 1], specific key character [Tier 2 historical tradition]
+
+---
+
+## 2026-10-29 — Suno v6 workflow upgrade
+
+- Added canonical v6 package requirements, evidence boundaries and primary sources.
+- Added Style/intro alternatives, voice continuity, differentiation gate and production selection.
+- Updated steering, Kiro hooks/optimizer/SOP guidance, song and experiment templates.
+- Added Advanced Options and Changes / Next Changes; removed mandatory fixed formula guidance.
+- Validator defaults to v6 packages; `--legacy` preserves historical single-prompt checks.
+- Added 25 regression tests, a structural example and GitHub Actions test workflow.
+- Validation: 25 unit tests pass; new structural example passes; `git diff --check` passes.
+- Existing Shadow_Behind_My_Eyes_SUNO_READY example still has the same five failures
+  and one warning found by the original validator; historical song content was not rewritten.
 
 ---
 

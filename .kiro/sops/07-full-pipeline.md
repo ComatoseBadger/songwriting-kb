@@ -183,3 +183,11 @@ WRITE → CRITIQUE → REVISE → OPTIMIZE → VERIFY → RENDER
 | Just need feedback | Stop after Stage 2 |
 | Song already Suno-formatted from SOP 01 | Stage 4 is verification only (still run, expect minimal changes) |
 | Album track but non-Suno | Skip Stage 4, keep Stage 5 |
+
+## Current v6 precedence
+
+For new tracks, the current workflow in `core/methodology/suno-optimization.md`
+supersedes historical model, tag and single-prompt instructions in this SOP.
+Use `templates/suno-v6-song.md`: multiple Style and intro alternatives, stable vocal
+identity, first-15–20-seconds comparison with up to three prior tracks or a disclosed
+history limitation, Advanced Options, Changes and Next Changes before lock.

@@ -14,6 +14,16 @@ For a confirmed instrumental: mark Gates 2, 3 and 4 `SKIP — instrumental`. In 
 
 ---
 
+## Gate 0 — v6 Workflow Completeness
+
+Read [the v6 workflow contract](v6-workflow.md) before evaluating a new package. FAIL missing or duplicate Style alternatives, any alternative over 1,000 characters, missing or drifting Vocal Identity anchors, or missing Advanced Options, Changes or Next Changes. Check all alternatives for budgets and artist names in Gates 5–6, not just the selected Style.
+
+Require three distinct intro concepts by default, each with Mechanism, First Sound, Groove (kick/snare), Vocal Entry, Envelope and Transition. Require the Intro Differentiation Gate's first-15–20-seconds comparison against up to three previous tracks, with explicit history limitations. FAIL absent comparison, fabricated history, repeated default openings without musical justification, or a lock claiming success while its decision is revise/provisional. Retain both Style and Intro selections in Production Lock.
+
+For confirmed instrumentals retain all arrangement and package checks; skip vocal anchors and mark vocal entry N/A. Do not skip Gate 0.
+
+Report structural readiness separately from production lock: provisional history can permit **READY FOR EXPLORATORY GENERATION — listening pending**, never a final lock. A locked package needs a passing comparison and listening evidence for voice continuity. When audio is unavailable, report that limitation; do not claim an auditory pass. Fix through [v6-workflow.md](v6-workflow.md) and [prompting.md](prompting.md), preserving approved lyrics.
+
 ## Blocking Gates
 
 Any FAIL here means **NOT READY**. Never say "can proceed with caution" on a blocking gate.
@@ -45,7 +55,7 @@ Any FAIL here means **NOT READY**. Never say "can proceed with caution" on a blo
 
 ### Gate 5 — Style Box Complete
 - [ ] Style Box is non-empty and within 1,000 characters.
-- [ ] Includes a vocal description, placed first (vocal tracks; omitted when a Voice supplies it).
+- [ ] Includes a vocal description, front-loaded with the defining sound; retain the same Vocal Identity anchor even when using a saved Voice (vocal tracks).
 - [ ] Lyrics Box has section tags on every section (`[Verse]`, `[Chorus]`, …).
 - [ ] Exclude Styles decided: 0–4 bare elements (`drums`, not `no drums`), within 1,000 characters, or explicitly "none".
 - [ ] No inline "no X" phrases in the Style Box (ignored on v6, and can ask for X).
@@ -71,7 +81,7 @@ Report these; they do not block, but they predict weak output.
   - **Variety Off** (above Off, Suno rewrites the Style Box and the checks above are meaningless).
   - Max Mode On for tracks targeting more than ~2:00 (and any Cover or Voice); note it when Off on a track of 2:30 or longer.
   - Duration Auto, or a Custom value that the lyric load fits.
-  - With a Voice: no gender/register descriptors in the Style Box; Audio Influence ~0.70–0.85.
+  - With a Voice: consistent Vocal Identity anchor, no conflicting descriptors; Audio Influence ~0.70–0.85.
 
 ---
 
@@ -89,6 +99,7 @@ Single track:
 
 | Gate | Status | Details |
 |------|--------|---------|
+| v6 Workflow | PASS | Alternatives and intro plans complete; draft, listening pending |
 | Sources Verified | PASS | Verified 2026-10-01 |
 | Lyrics Complete | PASS | 247 words, all sections tagged |
 | Pronunciation Resolved | PASS | 3/3 entries applied |
@@ -99,7 +110,7 @@ Single track:
 | Performance Cues | PASS | 8/8 sections cued |
 | Generation Settings | PASS | v6, Variety Off, Max Mode On, Duration Auto |
 
-**Verdict**: READY FOR GENERATION
+**Verdict**: READY FOR EXPLORATORY GENERATION — listening pending
 ```
 
 Failing track:
@@ -151,4 +162,4 @@ Verdicts: track → `READY FOR GENERATION` or `NOT READY`; album → `ALL READY`
 5. **Be specific.** "Gate failed" is useless; "`live` in V2:L3 unresolved" is actionable.
 6. **Instrumentals skip Gates 2–4.**
 
-When everything passes, present the final Style Box, Exclude Styles and Lyrics Box in separate code blocks with the Generation Settings beneath, ready to copy into Suno.
+When everything passes, present the complete [v6 package](v6-workflow.md), retaining alternatives, intro comparison, Advanced Options, Changes and Next Changes. Identify selected fields for copying without discarding the review record. Include Gate 0 in every report table and distinguish exploratory readiness from a verified production lock.

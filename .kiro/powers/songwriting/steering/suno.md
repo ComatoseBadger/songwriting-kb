@@ -1,53 +1,18 @@
-# Suno AI — Power Steering
+# Suno v6 Formatting and Workflow
 
-## Limits
-- Style: 1000 chars | Lyrics: 5000 chars | Exclude field: negatives/exclusions ONLY
+Follow `core/methodology/suno-optimization.md`, section "Current Suno v6 workflow".
+It supersedes legacy tags, model advice and fixed production formulas elsewhere.
 
-## Creative Sliders (UI Settings)
-- **Weirdness:** 50-55% for our songs (Safe↔Chaos, default 50%)
-- **Style Influence:** 50-60% for our songs (how much Style Prompt steers)
-- **Audio Influence:** 45% if using Inspo (how much reference affects output)
-
-## v5.5 Features (UI, not text tags)
-- **Personas:** Lock vocal identity per character. Select before generating.
-- **Stems:** Extract 12-track splits for DAW mixing. Use for album consistency.
-- **Custom Models:** Train on your tracks to learn your style (Pro/Premier).
-
-## Era Tags (Style Prompt)
-Decade tags ("1980s") aggressively bias production style. To get vintage instruments with modern production: "modern production, vintage 1970s guitar tone" — separate era from mix.
-
-## Always Include
-```
-[track: genre: X, mood: X, length: 270]
-[control: no-repeat, dynamic transitions]
-[sequence: intro, verse, pre-chorus, chorus, ...]
-```
-
-## Section Rules
-- Tags on own line, never with lyrics
-- 4-8 lines per section
-- No end punctuation
-- Each line = one phrase = one breath
-
-## Key Tags
-- `[vulnerable vocals]` — confessional sections
-- `[whisper]` — lead whispered / `[whispering]` — background layer
-- `[build]` — pre-chorus ramp
-- `[silence: sudden]` — dramatic pause
-- `[modulation: ascending]` — key change
-- `[chant]` — repeated hook/mantra
-- `[end]` — always at bottom
-
-## Parenthetical Layers — `()` in Lyrics
-- `(whispered) text` — delivery cue (works alone)
-- `(spoken) text` — speech delivery (works alone)
-- `(robotic layer: text)` — named secondary voice (**Style must declare**)
-- `(echo layer: text)` — echo treatment (**Style must declare**)
-- `(whisper layer: text)` — whisper texture (**Style must declare**)
-- `(response text)` — backup vocal / duet response (best with Style declaration)
-- Always add `‑vocal overlap confusion` to exclusions when using layers
-
-## Exclusions
-```
-[Exclusions: ‑beatboxing, ‑vocal hums, ‑trap drums, ...]
-```
+- Use `templates/suno-v6-song.md` for new complete packages.
+- Before lock: >=2 distinct Style prompts and >=2 distinct intro architectures.
+- Preserve the Vocal Identity anchor across alternatives; vary production freely.
+- Intro Differentiation Gate: compare first 15–20 seconds with previous three tracks
+  when available, documenting references/differences or unavailable history honestly.
+- Include Advanced Options, Changes and Next Changes in every complete package.
+- Keep metadata outside paste-ready Lyrics and Style; Exclude contains negatives only.
+- House budgets: Style <=1000 each, Lyrics <=5000. Count fields separately.
+- Preserve section-tag isolation, named layer declarations, artist conversion,
+  prosody, breath, hook and emotional-arc checks. No compulsory intro or song formula.
+- Bracket directives and exact slider recipes are heuristics, not guaranteed commands.
+- Official facts and dated primary sources are listed in the canonical methodology.
+- CLI defaults to v6; use `--legacy` for historical single-prompt files.

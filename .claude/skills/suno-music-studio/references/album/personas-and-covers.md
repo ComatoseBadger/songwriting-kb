@@ -52,9 +52,13 @@ Specific texture words (rasp, chest voice, breathy, weathered) beat generic ones
 
 Upload a clean a cappella, a full track, or a mic recording, 15 seconds to 4 minutes long. Cleaner sources need less length. Suno then asks the user to read a phrase aloud as a consent check. Own voice only, 18+.
 
+### Workflow identity record
+
+For new packages follow [the v6 workflow contract](../suno/v6-workflow.md). Keep the exact Vocal Identity anchor in all Style alternatives and Vocal Direction even with a saved Voice; this house traceability requirement takes precedence over the descriptor-omission advice below. Avoid conflicting descriptors. A saved Voice supports consistency but does not prove it: compare the rendered singer by listening. Preserve approved lyrics and the selected persona during arrangement experiments.
+
 ### Generating with a Voice
 
-- **Simplify the style prompt** to 1-2 genres plus instrumentation. Drop gender and register descriptors, because the Voice carries them.
+- **Simplify the style prompt** to 1-2 genres plus instrumentation. Retain the contract’s Vocal Identity anchor; avoid redundant or conflicting gender/register additions.
 - **Max Mode On** when a Voice is attached. Suno recommends it for voice consistency, and it costs more credits per generation.
 - Keep **Audio Influence** fairly high, around 0.70-0.85.
 - **Voices can't be used on instrumentals.**
